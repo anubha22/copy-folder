@@ -1,0 +1,16 @@
+name: Hello World Workflow
+
+on: 
+  [push]
+    
+jobs:
+  hello-world-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simple Hello World Action
+        id: greet
+        uses: actions/hello-world-javascript-action@main
+        with: 
+          who-to-greet: Homer Simpson
+      - name: Log out greeting
+        run: echo "Greeting time - ${{steps.greet.outputs.time}}"
